@@ -1,53 +1,53 @@
-const { quotes, semicolon } = require("./eslint.config.cjs");
+const { quotes, semicolon } = require('./eslint.config.cjs');
 
 module.exports = {
-  plugins: ["simple-import-sort"],
+  plugins: ['simple-import-sort'],
   env: {
     browser: true,
     node: true,
   },
   parserOptions: {
-    sourceType: "module",
+    sourceType: 'module',
     ecmaVersion: 2020,
   },
   rules: {
-    "comma-spacing": [
-      "error",
+    'comma-spacing': [
+      'error',
       {
-        "before": false,
-        "after": true,
+        'before': false,
+        'after': true,
       },
     ],
-    "quotes": ["error", quotes],
-    "astro/semi": ["error", semicolon ? "always" : "never"],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
+    'quotes': ['error', quotes],
+    'astro/semi': ['error', semicolon ? 'always' : 'never'],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
   overrides: [
     {
-      files: ["*.astro"],
+      files: ['*.astro'],
       extends: [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:astro/recommended",
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:astro/recommended',
       ],
-      parser: "astro-eslint-parser",
+      parser: 'astro-eslint-parser',
       parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro'],
       },
     },
     {
-      files: ["*.ts"],
+      files: ['*.ts'],
       extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
       ],
-      parser: "@typescript-eslint/parser",
+      parser: '@typescript-eslint/parser',
     },
     {
-      files: ["*.mjs"],
-      extends: ["eslint:recommended"],
+      files: ['*.mjs'],
+      extends: ['eslint:recommended'],
     },
   ],
 };
